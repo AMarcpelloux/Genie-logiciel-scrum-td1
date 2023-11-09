@@ -130,7 +130,9 @@ int main(int argc, char** argv){
       PdfToText(Dossier);
       char * path = Dossier;
       char * path2 = (char *)malloc(strlen(Dossier) + 11 );
+      char * path4 = (char *)malloc(strlen(Dossier) + 15 );
       sprintf(path2, "%s/resultat/", Dossier);
+      sprintf(path4, "%s/resultat_xml/", Dossier);
       char * ch;
       ch = (char *) malloc(TAILLE_MAX);
       snprintf(ch, TAILLE_MAX, "ls %s > %s", path2, file);
@@ -167,6 +169,13 @@ int main(int argc, char** argv){
 	  //  printf("le resume est : %s \n", ab);
      }
       fclose(fichier);
+      FILE * fichier2 = fopen(file, "r");
+      while (fscanf(fichier, " %[^\n] ", ligne) != EOF){
+      
+      
+      
+      }
+      fclose(fichier1);
       free(ligne);
       free(ch);
 }
