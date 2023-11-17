@@ -1,0 +1,7 @@
+<article>
+<preamble> ACL2004-HEADLINE.pdf </preamble>
+<titre> Hybrid Headlines: Combining Topics and Sentence Compression  </titre>
+<auteur> à{&NRichard Schwartz: Combining Topics and Sentence Compression  </auteur>
+<abstract> This paper presents Topiary, a headlinegeneration system that creates very short, informative summaries for newsnegeneration system that creates very stories by combining sentence compression and unsupervised topic discovery. We will show that the combination ofssion and unsupervised topic discovery. linguistically motivated sentence compression with statistically selected topic terms performs better than either alone,ssion with statistically selected topic according to some automatic summarylone,ssion with statistically selected topic evaluation measures. In addition we describe experimental results establishingc an appropriate extrinsic task on which toibe experimental results establishingc measure the effect of summarization on toibe experimental results establishingc human performance. We demonstrateon on toibe experimental results establishingc the usefulness of headlines in comparison to full texts in the context of thisc extrinsic task.of headlines in comparison to full texts in the context of thisc extrinsic task.of headlines in comparison to full texts in the context of thisc  </abstract>
+<biblio>  </biblio>
+</article>

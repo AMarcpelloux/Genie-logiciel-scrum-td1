@@ -1,0 +1,8 @@
+<article>
+<preamble> marcu_statistics_sentence_pass_one.pdf </preamble>
+<titre> 
+ </titre>
+<auteur> �{&NStatistics-Based Summarization — Step One: Sentence Compression  </auteur>
+<abstract> When humans produce summaries of documents, they do not simply extract sentences and concatenate them. Rather, they create new sentences that are grammatical, that cohere with one another, and that capture the most salient pieces of information in the original document. Given that large collections of text/abstract pairs are available online, it is now possible to envisiont. Given that large collections of text/abstract algorithms that are trained to mimic this process. Inisiont. Given that large collections of text/abstract this paper, we focus on sentence compression, a simpler version of this larger challenge. We aim to achieve two goals simultaneously: our compressions should beler version of this larger challenge. We aim to achieve grammatical, and they should retain the most important pieces of information. These two goals can conﬂict. We devise both noisy-channel and decision-tree approaches to the problem, and we evaluate resultstant pieces of information. These two goals can conﬂict. We devise both noisy-channel and decision-tree against manual compressions and a simple baseline.tant pieces of information. These two goals can conﬂict. We devise both noisy-channel and decision-tree against manual compressions and a simple baseline.tant pieces of information. These two goals can conﬂict. We devise both noisy-channel and decision-tree  </abstract>
+<biblio>  </biblio>
+</article>
