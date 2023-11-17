@@ -1,0 +1,7 @@
+<article>
+<preamble> Torres.pdf </preamble>
+<titre> Summary Evaluation with and without References  </titre>
+<auteur> Juan-Manuel Torres-Moreno, Horacio Saggion, Iria da Cunha, Eric SanJuan, and Patricia VelaÃÅzquez-Morales  </auteur>
+<abstract> ÄîWe study a new content-based method for the evaluation of text summarization systems without human models which is used to produce system rankings. The research is carried out using a new content-based. evaluation framework called F RESA to compute a variety of divergences among probability distributions. We apply ourf comparison framework to various well-established content-based evaluation measures in text summarization such as C OVERAGE,ed R ESPONSIVENESS, P YRAMIDS and ROUGE studying their OVERAGE,ed associations in various text summarization tasks includingE,ed generic multi-document summarization in English and French,,ed focus-based multi-document summarization in English andnch,,ed generic single-document summarization in French and Spanish.ed Index Terms‚ÄîText summarization evaluation, content-basedh.ed evaluation measures, divergences.evaluation, content-basedh.ed evaluation measures, divergences.evaluation, content-basedh.ed  </abstract>
+<biblio> Summary Evaluation with and without References  </biblio>
+</article>
