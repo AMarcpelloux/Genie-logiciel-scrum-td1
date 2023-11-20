@@ -1,6 +1,1 @@
--- la fonction: trouver_titre() prendre un fichier en argument et return le titre dans une ligne.
---la fonction: trouver_abstract() prendre un fichier en argument et return le résume.
---la fonction: trouver_auteur() prendre un fichier en argument et return l'auteur.
---la fonction: trouver_bibliographie() prendre un fichier en argument et return la bibliographie.
---la fonction pdftotext fait la converssion des fichier pdf et met le resultat dans un sous-dossier resultat.
---pour executer le programme, il faut passer le nom de dossier qui contient les fichier pdf et le chois de sortie (-t | -x) en paramètre, le main éxecute les different fonction sur chaque fichier du ce dossier et il envoi les resultats au sous-dossier resultat sous le nom ancienNom.txt si le chois choisi est "-t" et ancienNom.xml si le chois choisi est "-x" .
+Sélecteur des fichiers a parser fini
