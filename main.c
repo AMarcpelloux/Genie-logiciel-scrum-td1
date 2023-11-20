@@ -2,50 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include "selec.h"
 #define TAILLE_MAX 10000000
 
-void PdfToText(char* nom_dossier){
-   
-	   char * ch;
-	   ch = (char *) malloc(TAILLE_MAX * sizeof(char));
-	   
-	   char * line; 
-	   line = (char *) malloc(TAILLE_MAX * sizeof(char));
-	   
-	   snprintf(ch, TAILLE_MAX, "ls %s > tst.txt", nom_dossier);
-           system(ch); // mettre les non des fichier.pdf dans un fichier "tst.txt"
-           
-	   snprintf(ch, TAILLE_MAX, "rm -fr %s/resultat", nom_dossier);
-           system(ch); // supprimer le dossier resultat s'il existe
-      
-	   snprintf(ch, TAILLE_MAX, "mkdir %s/resultat", nom_dossier);
-           system(ch);  // créer un nouveau dossier resultat qui contient les fichiers.txt de resultat finale
-  
-        // on ouvre le fichier "tst.txt"
-        FILE* fichier = fopen("tst.txt", "r");
-        /*
-              parcourir le fichier "tst.txt" et à chaque fois on prend le non d'un
-              fichier pdf et on le converti à un fichier.txt on gardant leur nom
-        */
-        while (fgets(line, TAILLE_MAX, fichier) != NULL) 
-        {
-            snprintf(ch, TAILLE_MAX, "pdftotext %s/%s", nom_dossier, line);
-            system(ch);
-        }
- 
-        fclose(fichier);
-      snprintf(ch, TAILLE_MAX,"mv %s/*.txt %s/resultat/", nom_dossier,nom_dossier);
-        system(ch); // deplacer les fichier.txt dans le dossier resultat
-        system("rm tst.txt"); // supprimer le fichier "tst.txt"
-       free(ch);
-       free(line);
-}
 
 char * trouver_titre(char *fichier){
 
 	 char * ch;
 	 ch = (char *) malloc(TAILLE_MAX * sizeof(char));
-	 
 	 char * ligne;
 	 ligne  = (char*) malloc(TAILLE_MAX * sizeof(char));
 	 FILE * file = fopen(fichier, "r");
@@ -53,7 +17,7 @@ char * trouver_titre(char *fichier){
 	 char * resultat;
 	 resultat = (char*) malloc(TAILLE_MAX);
 	 while(fgets(ligne, TAILLE_MAX, file) != NULL){
-	     i++; 
+	     i++;
 	         if(strstr(ligne, ",") || i==3 ){
                 if(i==1){
                     if(strstr(ligne, "FROM") || strstr(ligne, "from") || strstr(ligne, "From")){
@@ -72,12 +36,10 @@ char * trouver_titre(char *fichier){
               //newLigne = ligne;
               strcat(resultat, newLigne);
               strcat(resultat, " ");
-              free(newLigne);
+            
 	  	}
 	}
 	fclose(file);
-	free(ch);
-	free(ligne);
 	
 	return resultat;
 }
@@ -179,18 +141,14 @@ char *trouver_auteur(char *fichier) {
 
 
 int main(int argc, char** argv){
-
-      char *Dossier = (char*)malloc(TAILLE_MAX);
+	  char *Dossier = (char*)malloc(TAILLE_MAX);
       Dossier = argv[1];
-      char *file = "namesOfFiles";
-      PdfToText(Dossier);
-      char * path = Dossier;
       char * path2 = (char *)malloc(strlen(Dossier) + 11 );
-      sprintf(path2, "%s/resultat/", Dossier);
+      sprintf(path2, "%sresultat/", Dossier);
       char * ch;
       ch = (char *) malloc(TAILLE_MAX);
-      snprintf(ch, TAILLE_MAX, "ls %s > %s", path2, file); // enregistrer les nom de fichier.txt dans un fichier namesOfFiles
-      system(ch);
+	  char* file=(char*)malloc(TAILLE_MAX*sizeof(char));
+	  file=selecteur(argv);
       FILE * fichier = fopen(file, "r");
       char * ligne = (char*) malloc(TAILLE_MAX);
       if(strcmp(argv[2], "-t") == 0){    //  choisir le type de sortie :txt
@@ -202,7 +160,7 @@ int main(int argc, char** argv){
 	    	char *chemin = (char *)malloc(strlen(p) + strlen(ligne) );
 		if (chemin != NULL) {
 		    sprintf(chemin, "%s%s", p, ligne);
-		    snprintf(ch, TAILLE_MAX, "touch %s", chemin); //créer les fichier.txt 
+		    snprintf(ch, TAILLE_MAX, "touch %s", chemin); //créer les fic perror("ou");hier.txt 
                     system(ch);
 		    title = trouver_titre(chemin);
 		    char* auteur = trouver_auteur(chemin);
@@ -215,12 +173,11 @@ int main(int argc, char** argv){
 		    fprintf(fichier1, "%s\n", auteur);
 		    fprintf(fichier1, "%s\n", ab);
 		    fprintf(fichier1, "%s\n", biblio);
-		    free(chemin); 
+		    //free(chemin); 
 	            fclose(fichier1);
 		}
-    	}
-      }
-      else if(strcmp(argv[2], "-x") == 0){   //  choisir le type de sortie : xml
+      } 
+      }else if(strcmp(argv[2], "-x") == 0){   //  choisir le type de sortie : xml
        	char * title;
        	char * ab;
      	while (fscanf(fichier, " %[^\n] ", ligne) != EOF) {
@@ -246,10 +203,10 @@ int main(int argc, char** argv){
 		    fprintf(fichier1, "<abstract> %s </abstract>\n", ab);
 		    fprintf(fichier1, "<biblio> %s </biblio>\n", biblio);
 		    fprintf(fichier1, "</article>\n");
-		    char *ch1 = (char*)malloc(TAILLE_MAX) ;
+		    char *ch1 = (char*)malloc(TAILLE_MAX) ; 
 		    sprintf(ch1, "rm %s", chemin);
 		    system(ch1);
-		    free(chemin); 
+		    //free(chemin); 
 	            fclose(fichier1); 
 		}
    	}
@@ -258,9 +215,10 @@ int main(int argc, char** argv){
       		printf("pas d'argument");
         }
       fclose(fichier);
-      free(ligne);
-      free(ch);
-      system("rm namesOfFiles");
+      //free(ligne);
+      //free(ch);
+      //system("rm namesOfFiles"); perror("nv");
+       perror(",;,");
 }
       
 
